@@ -1,0 +1,28 @@
+Information for the files in this folder.
+
+Data
+
+gaiaedr3_wd_main.fits.gz - original eDR3 white dwarf catalogue from Gentile Fusillo, N P, P-E Tremblay, 
+E Cukanovaite, A Vorontseva, R Lallement, M Hollands, B T Gänsicke, K B Burdge, J McCleery, and S Jordan. 2021. 
+‘A Catalogue of White Dwarfs in Gaia EDR3’. Monthly Notices of the Royal Astronomical Society 508 (3): 3877–96. 
+https://doi.org/10.1093/mnras/stab2672.
+
+smaller_data_ all the white dwarfs in the catalogue above but only importing certain properties so it is less memory intensive
+smaller_data: created by import_data.py, used for main calculation
+	imports Gaia broadband magnitude, distance, mass, probability of being a white dwarf
+mass_error : created by import_data_mass_error.py used for estimating importance of mass cut off
+	imports Gaia broadband magnitude, distance, mass, error on mass, probability of being a white dwarf
+with_name: created by import_data_with_names.py
+	as above but excluding mass error and including source id, parallax, WD J + J2000 RA (hh mm ss.ss)  + Dec. (dd mm ss.s), equinox and epoch 2000
+
+
+filtered_data_ - these files are created using transform_data.py with different cuts
+enoise: primary catalogue used in analysis (see paper for cut details) created by transform_data.py
+the rest of these files are created by transform_data_mass_error
+
+15mag : all white dwarfs have Gmag<15
+minus_3me: all white dwarfs have M-3\sigma < Mf
+plus_3me: all white dwarfs have M +3\sigma< Mf
+minus_3_cut: all white dwarfs have M < Mf-3\sigma
+plus_3_cut: all white dwarfs have M < Mf+3\sigma
+minus_1_cut: all white dwarfs have M < Mf-\sigma - used as Mf-3\sigma excludes almost all WD in the catalogue
