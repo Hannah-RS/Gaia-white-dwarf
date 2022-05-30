@@ -1,2 +1,35 @@
 # Gaia-white-dwarfs
-Simulation data and analysis code for 'Can Gaia Find Planets Around White Dwarfs' H. Sanderson et al. 2022 (submitted to MNRAS)
+Simulation data and code for 'Can Gaia Find Planets Around White Dwarfs' H. Sanderson et al. 2022 (submitted to MNRAS)
+
+This code can be downloaded along with the eDR3 white dwarf catalogue from Gentile Fusillo et al. (2021) https://doi.org/10.1093/mnras/stab2672 in order to reproduce all the calculations and figures in the paper. 
+
+The code is organised as follows:
+
++ Catalogue
+  + Code for importing and filtering the eDR3 white dwarf catalogue. 
+  + Resulting filtered catalogues are in Data subfolder
+  + Produces Figure 7
+  + Data subfolder also contains a full version of the table in Appendix 3 (SN_1mj) that will also be uploaded to Vizier.
++ Detection_probability
+  + Code for calculating $p_{ljk}$
+  + Produces Figure 3
++ Distribution
+  + Code for calculating $\frac{d^2N_{WD}}{da dlog M}$
+  + Categorises simulated planets by their ability to pollute white dwarfs
+  + Produces Figure 4, 5a and 5b (annotations added in Inkscape), 8
+  + Appendix subfolder contains the code for A1 and A2
+  + simulation_data subfolder contains the results of the simulations
++ Gaia
+  + Calculates detection limits for a generic magnitude 15 white dwarf
+  + Produces Figures 1 and 2
++ Gaia error - text file of Gaia error as a function of magnitude from https://www.cosmos.esa.int/web/gaia/science-performance - these values are equivalent to putting each magnitude into equation 4 and 5
++ Planet detections - Jupyter notebook for calculating $\frac{d^2N_{det}}{da dlogM}$ and calculating summary statistics
+  + Produces Figure 6
+
+**Questions?**
+Contact H. Sanderson on the corresponding author address on H. Sanderson et al. (2022)
+
+**Credits**
+H. Sanderson wrote all the code in this repository except the ... stellar evolution model in the ... subdirectory written by A. J. Mustill and explained in Mustill, Alexander James, and Eva Villaver. 2012. ‘Foretellings of Ragnar\"ok: World-Engulfing Asymptotic Giants and the Inheritance of White Dwarfs’. The Astrophysical Journal 761 (2): 121. https://doi.org/10.1088/0004-637X/761/2/121.
+The detection probabilities as a function of astrometric S/N and period come from Ranalli et al. (2018) ‘Astrometry and Exoplanets in the Gaia Era: A Bayesian Approach to Detection and Parameter Recovery’. Astronomy & Astrophysics 614 (June): A30. https://doi.org/10.1051/0004-6361/201730921 and were helpfully rebinned from hexagonal to rectangular bins by Piero Ranalli.
+
