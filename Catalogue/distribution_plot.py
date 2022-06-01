@@ -16,13 +16,14 @@ dataf=wd_file[1]
 
 #change endianness and replace in dictionary to make new data frame
 from endian_converter import endian_converter
-data=endian_converter(dataf,5)
+data=endian_converter(dataf,6)
 
 #for a sense of scale find alpha for mj at 2au
 alphaj=(1.898e27/(0.6*1.989e30))*2*1e6 # [micro as]
 
 #create new S/N column
 data.loc[:,'SN_1Mj']=alphaj/(data['noise'].copy()*data['distance'].copy())
+data['SN_error_1Mj'] = data['SN_1Mj']/data['noise']*data['enoise'] #error on SN
 
 #filter to remove anything with S/N <0.5 (lines up with min val in Ranalli)
 subset=data[data['SN_1Mj']>0.5]
@@ -31,13 +32,15 @@ subset=data[data['SN_1Mj']>0.5]
 alpha13j=(13*1.898e27/(0.6*1.989e30))*3.91*1e6 # [micro as]
 #create new S/N column
 data.loc[:,'SN_13Mj']=alpha13j/(data['noise'].copy()*data['distance'].copy())
+data['SN_error_13Mj'] = data['SN_13Mj']/data['noise']*data['enoise'] #error on SN
+
 #filter to remove anything with S/N <0.5 (lines up with min val in Ranalli)
-subset2=data[data['SN_13Mj']>0.5]
+subset2=data[data['SN_13Mj']-data['SN_error_13Mj']>0.5]
 
 #filter to remove anything with S/N >3 
-subset3=data[data['SN_13Mj']>3]
+subset3=data[data['SN_13Mj']-data['SN_error_13Mj']>3]
 
-subset4=data[data['SN_1Mj']>3]
+subset4=data[data['SN_1Mj']-data['SN_error_1Mj']>3] #must be above 3 if you include error too
 subset4['distance'].max()
 subset4['Gmag'].max()
 

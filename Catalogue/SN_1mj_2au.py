@@ -57,7 +57,7 @@ data['SN_error'] = data['SN']/data['noise']*data['enoise'] #error on SN
 
 
 
-subset = data[data['SN']>3] #only keep values with S/N >3
+subset = data[data['SN']-data['SN_error']>3] #only keep values with S/N >3 within error
 subset.sort_values('SN',ascending=False) #sort data by SN
 
 #import and compare with pollution database
@@ -76,13 +76,15 @@ mwdd_small = mwdd[['source_id','logcahe','logcah','Dpc']]
 mwdd_small = mwdd_small[mwdd_small['Dpc']<subset['distance'].max()]
 
 #now compare source id
-subset.loc[:,'source_id']=subset['source_id'].astype(str)
-mwdd_small.loc[:,'source_id']=mwdd_small['source_id'].astype(str)
+subset.loc[:,'source_id']=subset.loc[:,'source_id'].astype(str)
+mwdd_small.loc[:,'source_id']=mwdd_small.loc[:,'source_id'].astype(str)
 
 #merges the two data frames matching source id
 new = subset.merge(mwdd_small,'outer','source_id')
-#everything below row 50 is in montreal database but my not list so exclude
-final = new.iloc[0:50,:]
+#everything below row = len(subset) is in montreal database but my not list so exclude
+final = new.iloc[0:len(subset),:]
+#reorder by S/N
+final=final.sort_values('SN',ascending=False)
 final2 = final[['name','source_id','distance','Gmag','Pwd','mass','mass_error','SN','SN_error','logcahe','logcah']]
 
 #now tidy up to save and export to latex - remove duplicates here and make small columns for paper, nan?
