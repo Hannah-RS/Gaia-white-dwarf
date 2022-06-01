@@ -26,10 +26,23 @@ The code is organised as follows:
 + Planet detections - Jupyter notebook for calculating $\frac{d^2N_{det}}{da dlogM}$ and calculating summary statistics
   + Produces Figure 6
 
-**Questions?**
+## I want to...
+
+### Create a map of detection probability for a particular candidate
+Go to Detection_probability and use the Detection probability heatmaps notebook. Enter your candidate distance and Gaia broadband magnitude and run steps 1 and 2.
+
+### Look at the planets that will be detected around a subset of white dwarfs
+
+1. Download the eDR3 catalogue
+2. Use Catalogue/import_data to get the subset of white dwarf parameters you are interested in
+3. Use Catalogue/transform_data to filter your catalogue to get the subset you are interested
+4. Run Detection_probability/total_detection_probability with your subset to get $p_{jk}$
+5. Run the planet detections Jupyter notebook with your chosen $p_{jk}$ file
+
+## Questions?
 Contact H. Sanderson on the corresponding author address on H. Sanderson et al. (2022)
 
-**Credits**
+## Credits
 H. Sanderson wrote all the code in this repository except the ... stellar evolution model in the ... subdirectory written by A. J. Mustill and explained in Mustill, Alexander James, and Eva Villaver. 2012. ‘Foretellings of Ragnar\"ok: World-Engulfing Asymptotic Giants and the Inheritance of White Dwarfs’. The Astrophysical Journal 761 (2): 121. https://doi.org/10.1088/0004-637X/761/2/121.
 The detection probabilities as a function of astrometric S/N and period come from Ranalli et al. (2018) ‘Astrometry and Exoplanets in the Gaia Era: A Bayesian Approach to Detection and Parameter Recovery’. Astronomy & Astrophysics 614 (June): A30. https://doi.org/10.1051/0004-6361/201730921 and were helpfully rebinned from hexagonal to rectangular bins by Piero Ranalli.
 
