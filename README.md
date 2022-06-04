@@ -25,6 +25,12 @@ The code is organised as follows:
 + Gaia error - text file of Gaia error as a function of magnitude from https://www.cosmos.esa.int/web/gaia/science-performance - these values are equivalent to putting each magnitude into equation 4 and 5
 + Planet detections - Jupyter notebook for calculating $\frac{d^2N_{det}}{da dlogM}$ and calculating summary statistics
   + Produces Figure 6
++ Tides
+  + Jupyter notebooks for computing survivability and final orbits of planets orbiting AGB stars (see 
+Mustill & Villaver, 2012, ApJ, 761, 121)
+  + AGB model files from Vassiliadis & Wood (1993, ApJ, 413, 641) required for above calculation
+  + Comma-separated variable files containing results grids of above caculation, used for the 
+predictions of planet yield from Gaia
 
 ## I want to...
 
