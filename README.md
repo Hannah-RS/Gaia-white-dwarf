@@ -29,8 +29,7 @@ The code is organised as follows:
   + Jupyter notebooks for computing survivability and final orbits of planets orbiting AGB stars (see 
 Mustill & Villaver, 2012, ApJ, 761, 121)
   + AGB model files from Vassiliadis & Wood (1993, ApJ, 413, 641) required for above calculation
-  + Comma-separated variable files containing results grids of above caculation, used for the 
-predictions of planet yield from Gaia
+  + Results of this model are in Distribution/simulation_data
 
 ## I want to...
 
