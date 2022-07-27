@@ -80,7 +80,7 @@ with sns.plotting_context('paper',font_scale=1.5):
     #plt.xlim([0,3.91])
     plt.xlim([0,5.5])
     plt.ylim([np.min(data2['M']),np.max(data2['M'])])
-    plt.legend(bbox_to_anchor=(0.57,0.22),fontsize='small')
+    plt.legend(loc=(0.477,0.18),fontsize='small')
     #plt.title('Effects of tides on positions of surviving planets \n 1M$_\odot$ progenitor')
-    plt.savefig('../../../Plots/effect_of_tides.pdf',bbox_inches='tight')
+    #plt.savefig('../../../Plots/effect_of_tides.pdf',bbox_inches='tight')
     
