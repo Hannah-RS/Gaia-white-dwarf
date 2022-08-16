@@ -20,7 +20,7 @@ from astropy.io import fits
 import pandas as pd
 import numpy as np
 
-wd_file2 = fits.open('Data/smaller_data_with_name.fits')
+wd_file2 = fits.open('Data/smaller_data_with_name.fits') 
 dataf=wd_file2[1]
 extension = 'SN_1mj' #name of filter applied
 
@@ -35,7 +35,9 @@ data=data[data['Pwd']>0.75]
 data_size.append(len(data))
 data=data[data['Gmag']<20.7] 
 data_size.append(len(data))
-data=data[data['mass']<0.663] 
+data1=data[data['mass']<0.663] #apply mass filter to remove overly massive white dwarfs
+data2=data[data['mass'].isna()==True]  #keep mass nan objects as assume they are 0.6M_\odot
+data = pd.concat([data1,data2],ignore_index=True) #rejoin the two data frames
 data_size.append(len(data))
 
 data=data.dropna(subset=['distance']) #drop data which are missing values needed for the detection calculations
@@ -90,7 +92,7 @@ final2 = final[['name','source_id','distance','Gmag','Pwd','mass','mass_error','
 #now tidy up to save and export to latex - remove duplicates here and make small columns for paper, nan?
 table_dat=final[['name','source_id','distance','Gmag','SN','SN_error','logcahe','logcah']]
 #save as a csv
-final2.to_csv('Data/SN_1mj.csv',',',index=False)
+final2.to_csv('Data/SN_1mj.csv',',',index=False) #need to alter float format so it saves source id to higher precision
 
 table_dat.to_latex(header=['White dwarf name','Gaia source ID','R_MED_GEO','G$_{mag}$','S/N for 1$M_J$ at 2au','error on S/N','Ca/He','Ca/H'],index=False,float_format='{:0.1f}'.format,na_rep=' ')
 

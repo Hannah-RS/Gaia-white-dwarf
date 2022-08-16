@@ -36,7 +36,9 @@ data=data[data['Pwd']>0.75]
 data_size.append(len(data))
 data=data[data['Gmag']<20.7] 
 data_size.append(len(data))
-data=data[data['mass']<0.609] 
+data1=data[data['mass']<0.609]  #apply mass filter to remove overly massive white dwarfs
+data2=data[data['mass'].isna()==True]  #keep mass nan objects as assume they are 0.6M_\odot
+data = pd.concat([data1,data2],ignore_index=True) #rejoin the two data frames
 data_size.append(len(data))
 #data=data[data['distance']>5]
 #data_size.append(len(data))
