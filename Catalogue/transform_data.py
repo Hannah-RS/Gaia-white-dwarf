@@ -23,24 +23,29 @@ Also alter number of columns in endian converter if importing more information
 from astropy.io import fits
 import pandas as pd
 
-wd_file2 = fits.open('Data/smaller_data.fits')
-dataf=wd_file2[1]
-extension = '15_mag' #name of filter applied
 
+wd_file2 = fits.open('Data/smaller_data_with_name.fits') #delete with_name
+dataf=wd_file2[1]
+
+extension = 'final' #name of filter applied
 #change endianness and replace in dictionary to make new data frame
 from endian_converter import endian_converter
-data=endian_converter(dataf,4) #need to change the number of columns here if have more columns in filtered data
-
+data=endian_converter(dataf,7) #need to change the number of columns here if have more columns in filtered data
+# was 4 
 #create variable to store size at each step to see how much you remove
 data_size=[len(data)]
 #exclude undesired values
+#data=data[data['source_id']==4698424845771339520]
+data_size.append(len(data))
 data=data[data['Pwd']>0.75]
 data_size.append(len(data))
 data=data[data['Gmag']<20.7] 
 data_size.append(len(data))
-data=data[data['mass']<0.663] 
+data1=data[data['mass']<0.663] #apply mass filter to remove overly massive white dwarfs
+data2=data[data['mass'].isna()==True]  #keep mass nan objects as assume they are 0.6M_\odot
+data = pd.concat([data1,data2],ignore_index=True) #rejoin the two data frames
 data_size.append(len(data))
-#data=data[data['distance']>5]
+#data=data[data['distance']<100]
 #data_size.append(len(data))
 data=data.dropna(subset=['distance']) #drop data which are missing values needed for the detection calculations
 data_size.append(len(data))

@@ -1,0 +1,28 @@
+This file lists the difference between the files in this folder, which are not python scripts.
+These files in the Results folder are created using total_detection_probability.py
+
+Results subfolder: 
+Probabilities: 
+pjk_ = detection probabilities
+ll_pjk_ = lower limit on detection probabilities
+ul_pjk = upper limit on detection probabilities
+
+Distributions
+detected_planets_* : (d^2N_{det}/dloga\:dlogM)_{jk} 
+error_planets_*: \sigma (d^2N_{det}/dloga\:dlogM)_{jk}
+
+The appendices refer to different cuts applied to the catalogue
+final: primary catalogue used in analysis (see paper for cut details) created by transform_data.py
+enoise: all white dwarfs with mass <0.663Msol, mass = nan excluded
+with_mass_na : mass = nan only
+15mag : all white dwarfs have Gmag<15
+minus_3me: all white dwarfs have M-3\sigma < Mf
+plus_3me: all white dwarfs have M +3\sigma< Mf
+minus_3_cut: all white dwarfs have M < Mf-3\sigma
+plus_3_cut: all white dwarfs have M < Mf+3\sigma
+minus_1_cut: all white dwarfs have M < Mf-\sigma - used as Mf-3\sigma excludes almost all WD in the catalogue
+
+
+The detfract10yr file is detection probabilities in square bins from Ranalli et al. 2018 for a 10 year mission.
+alpha_map.csv - dictionary of astrometric noise as a function of semi-major axis and mass, created in Detection Probability heatmaps notebook
+
