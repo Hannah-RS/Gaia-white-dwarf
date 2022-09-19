@@ -48,6 +48,8 @@ Go to Detection_probability and use the Detection probability heatmaps notebook.
 Contact H. Sanderson on the corresponding author address on H. Sanderson et al. (2022)
 
 ## Credits
-H. Sanderson wrote all the code in this repository except the ... stellar evolution model in the ... subdirectory written by A. J. Mustill and explained in Mustill, Alexander James, and Eva Villaver. 2012. ‘Foretellings of Ragnar\"ok: World-Engulfing Asymptotic Giants and the Inheritance of White Dwarfs’. The Astrophysical Journal 761 (2): 121. https://doi.org/10.1088/0004-637X/761/2/121.
+If you use any part of this code in your work please cite Sanderson et al. (2022) (https://arxiv.org/abs/2206.02505). If you use the post-main sequence planet and stellar evolution model please cite Mustill & Villaver (2012) (https://doi.org/10.1088/0004-637X/761/2/121)
+
+H. Sanderson wrote all the code in this repository except the post-main sequence planet and stellar evolution model in the Tides subdirectory written by A. J. Mustill and explained in Mustill, Alexander James, and Eva Villaver. 2012. ‘Foretellings of Ragnar\"ok: World-Engulfing Asymptotic Giants and the Inheritance of White Dwarfs’. The Astrophysical Journal 761 (2): 121. https://doi.org/10.1088/0004-637X/761/2/121.
 The detection probabilities as a function of astrometric S/N and period come from Ranalli et al. (2018) ‘Astrometry and Exoplanets in the Gaia Era: A Bayesian Approach to Detection and Parameter Recovery’. Astronomy & Astrophysics 614 (June): A30. https://doi.org/10.1051/0004-6361/201730921 and were helpfully rebinned from hexagonal to rectangular bins by Piero Ranalli.
 
