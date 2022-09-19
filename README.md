@@ -34,7 +34,7 @@ Mustill & Villaver, 2012, ApJ, 761, 121)
 ## I want to...
 
 ### Create a map of detection probability for a particular candidate
-Go to Detection_probability and use the Detection probability heatmaps notebook. Enter your candidate distance and Gaia broadband magnitude and run steps 1 and 2.
+Go to Detection_probability and use the Candidate detection probability notebook. Enter your candidate distance and Gaia broadband magnitude in code cell 3 and run the whole notebook.
 
 ### Look at the planets that will be detected around a subset of white dwarfs
 
