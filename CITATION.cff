@@ -1,0 +1,11 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Sanderson"
+  given-names: "Hannah"
+  orcid: "https://orcid.org/0000-0001-5842-6985"
+title: "Gaia white dwarf planet detection code"
+version: 1.0.1
+doi: 10.5281/zenodo.13870853
+date-released: 2024-01-10
+url: "https://github.com/Hannah-RS/Gaia-white-dwarf"
