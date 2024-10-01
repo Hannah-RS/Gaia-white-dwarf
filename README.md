@@ -1,4 +1,5 @@
 # Gaia-white-dwarfs
+[![DOI](https://zenodo.org/badge/491921013.svg)](https://doi.org/10.5281/zenodo.13870853)
 Simulation data and code for 'Can Gaia Find Planets Around White Dwarfs' [H. Sanderson et al. 2022](https://doi.org/10.1093/mnras/stac2867)
 
 This code can be downloaded along with the eDR3 white dwarf catalogue from Gentile Fusillo et al. (2021) https://doi.org/10.1093/mnras/stab2672 in order to reproduce all the calculations and figures in the paper. 
